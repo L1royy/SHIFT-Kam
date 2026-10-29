@@ -97,35 +97,54 @@
           <button class="tab-btn" data-tab="care">Уход</button>
         </div>
 
-        <!-- Контент услуг оставлен тем же, CSS перестроит его в сетку на ПК -->
         <div class="services-list active" id="tab-hair">
           <div class="service-item">
             <div class="service-info">
               <h4 class="service-name">Мужская стрижка</h4>
               <p class="service-meta">60 мин • от 1000 ₽</p>
             </div>
-            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+            <button
+              class="btn btn-outline btn-sm book-main-btn"
+              data-booking-type="service"
+            >
+              Запись
+            </button>
           </div>
           <div class="service-item">
             <div class="service-info">
               <h4 class="service-name">Удлиненная стрижка (ножницы)</h4>
               <p class="service-meta">60 мин • от 1200 ₽</p>
             </div>
-            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+            <button
+              class="btn btn-outline btn-sm book-main-btn"
+              data-booking-type="service"
+            >
+              Запись
+            </button>
           </div>
           <div class="service-item">
             <div class="service-info">
               <h4 class="service-name">Стрижка под машинку</h4>
               <p class="service-meta">30 мин • от 600 ₽</p>
             </div>
-            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+            <button
+              class="btn btn-outline btn-sm book-main-btn"
+              data-booking-type="service"
+            >
+              Запись
+            </button>
           </div>
           <div class="service-item">
             <div class="service-info">
               <h4 class="service-name">Детская стрижка</h4>
               <p class="service-meta">45 мин • от 800 ₽</p>
             </div>
-            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+            <button
+              class="btn btn-outline btn-sm book-main-btn"
+              data-booking-type="service"
+            >
+              Запись
+            </button>
           </div>
         </div>
 
@@ -135,14 +154,24 @@
               <h4 class="service-name">Оформление бороды</h4>
               <p class="service-meta">45 мин • от 800 ₽</p>
             </div>
-            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+            <button
+              class="btn btn-outline btn-sm book-main-btn"
+              data-booking-type="service"
+            >
+              Запись
+            </button>
           </div>
           <div class="service-item">
             <div class="service-info">
               <h4 class="service-name">СПА моделирование</h4>
               <p class="service-meta">60 мин • от 1200 ₽</p>
             </div>
-            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+            <button
+              class="btn btn-outline btn-sm book-main-btn"
+              data-booking-type="service"
+            >
+              Запись
+            </button>
           </div>
         </div>
 
@@ -152,14 +181,24 @@
               <h4 class="service-name">Детокс кожи головы</h4>
               <p class="service-meta">45 мин • от 1000 ₽</p>
             </div>
-            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+            <button
+              class="btn btn-outline btn-sm book-main-btn"
+              data-booking-type="service"
+            >
+              Запись
+            </button>
           </div>
           <div class="service-item">
             <div class="service-info">
               <h4 class="service-name">Депиляция воском (1 зона)</h4>
               <p class="service-meta">15 мин • от 400 ₽</p>
             </div>
-            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+            <button
+              class="btn btn-outline btn-sm book-main-btn"
+              data-booking-type="service"
+            >
+              Запись
+            </button>
           </div>
         </div>
       </section>
@@ -177,7 +216,7 @@
             <p class="barber-grade">Главный барбер</p>
             <button
               class="btn btn-outline btn-sm w-full mt-2 book-main-btn"
-              data-master-id="4530639"
+              data-booking-type="master"
             >
               Выбрать
             </button>
@@ -190,7 +229,10 @@
             </div>
             <h4 class="barber-name">Ольга</h4>
             <p class="barber-grade">Младший барбер</p>
-            <button class="btn btn-outline btn-sm w-full mt-2 book-main-btn">
+            <button
+              class="btn btn-outline btn-sm w-full mt-2 book-main-btn"
+              data-booking-type="master"
+            >
               Выбрать
             </button>
           </div>
@@ -203,7 +245,10 @@
             </div>
             <h4 class="barber-name">Кирилл</h4>
             <p class="barber-grade">Главный барбер</p>
-            <button class="btn btn-outline btn-sm w-full mt-2 book-main-btn">
+            <button
+              class="btn btn-outline btn-sm w-full mt-2 book-main-btn"
+              data-booking-type="master"
+            >
               Выбрать
             </button>
           </div>
@@ -213,7 +258,10 @@
             </div>
             <h4 class="barber-name">Татьяна</h4>
             <p class="barber-grade">Барбер</p>
-            <button class="btn btn-outline btn-sm w-full mt-2 book-main-btn">
+            <button
+              class="btn btn-outline btn-sm w-full mt-2 book-main-btn"
+              data-booking-type="master"
+            >
               Выбрать
             </button>
           </div>
@@ -221,7 +269,10 @@
             <div class="barber-avatar"><i data-lucide="user"></i></div>
             <h4 class="barber-name">Ксения</h4>
             <p class="barber-grade">Барбер эксперт</p>
-            <button class="btn btn-outline btn-sm w-full mt-2 book-main-btn">
+            <button
+              class="btn btn-outline btn-sm w-full mt-2 book-main-btn"
+              data-booking-type="master"
+            >
               Выбрать
             </button>
           </div>
@@ -232,6 +283,7 @@
       <section class="locations">
         <h2 class="section-title">КОНТАКТЫ</h2>
         <div class="locations-grid">
+          <!-- Филиал 1: Тургенева -->
           <div class="card location-card active" data-branch-content="1">
             <div class="location-header">
               <i data-lucide="map-pin" class="text-accent"></i>
@@ -244,10 +296,29 @@
               href="https://yandex.ru/maps/10959/kamishin/?ll=45.395236%2C50.020792&mode=routes&rtext=~50.092501%2C45.415467&rtt=comparison&ruri=~ymapsbm1%3A%2F%2Forg%3Foid%3D230885168116&utm_source=share&z=11"
               target="_blank"
               class="btn btn-outline w-full mt-3"
-              ><i data-lucide="navigation"></i> Маршрут</a
             >
+              <i data-lucide="navigation"></i> Маршрут
+            </a>
+            <a
+              href="https://vk.com/shift.room"
+              target="_blank"
+              class="btn btn-vk w-full mt-2 vk-link"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M15.071 18.067c-6.88 0-10.87-4.78-11.025-12.733h3.504c.108 5.71 2.65 8.083 4.662 8.586V5.334h3.332v4.88c2.062-.224 4.148-2.5 4.862-4.88h3.332c-.57 2.92-2.83 5.17-4.663 6.136 1.834.782 4.34 2.825 5.253 6.6-3.76-.053-3.757-.024-3.757-.024-.62-2.584-2.55-4.48-4.996-4.664v4.786H15.071z"
+                />
+              </svg>
+              Группа ВКонтакте
+            </a>
           </div>
 
+          <!-- Филиал 2: 5-й микрорайон -->
           <div class="card location-card hidden" data-branch-content="2">
             <div class="location-header">
               <i data-lucide="map-pin" class="text-accent"></i>
@@ -260,32 +331,27 @@
               href="https://yandex.ru/maps/10959/kamishin/?ll=45.395236%2C50.020792&mode=routes&rtext=~50.092501%2C45.415467&rtt=comparison&ruri=~ymapsbm1%3A%2F%2Forg%3Foid%3D230885168116&utm_source=share&z=11"
               target="_blank"
               class="btn btn-outline w-full mt-3"
-              ><i data-lucide="navigation"></i> Маршрут</a
             >
+              <i data-lucide="navigation"></i> Маршрут
+            </a>
+            <a
+              href="https://vk.com/shift.room"
+              target="_blank"
+              class="btn btn-vk w-full mt-2 vk-link"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M15.071 18.067c-6.88 0-10.87-4.78-11.025-12.733h3.504c.108 5.71 2.65 8.083 4.662 8.586V5.334h3.332v4.88c2.062-.224 4.148-2.5 4.862-4.88h3.332c-.57 2.92-2.83 5.17-4.663 6.136 1.834.782 4.34 2.825 5.253 6.6-3.76-.053-3.757-.024-3.757-.024-.62-2.584-2.55-4.48-4.996-4.664v4.786H15.071z"
+                />
+              </svg>
+              Группа ВКонтакте
+            </a>
           </div>
-
-          <button
-            id="vk-link"
-            class="btn btn-outline w-full mt-2"
-            style="
-              background: rgba(39, 135, 245, 0.1);
-              border-color: rgba(39, 135, 245, 0.3);
-              color: #2787f5;
-            "
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              style="margin-right: 8px"
-            >
-              <path
-                d="M15.071 18.067c-6.88 0-10.87-4.78-11.025-12.733h3.504c.108 5.71 2.65 8.083 4.662 8.586V5.334h3.332v4.88c2.062-.224 4.148-2.5 4.862-4.88h3.332c-.57 2.92-2.83 5.17-4.663 6.136 1.834.782 4.34 2.825 5.253 6.6-3.76-.053-3.757-.024-3.757-.024-.62-2.584-2.55-4.48-4.996-4.664v4.786H15.071z"
-              />
-            </svg>
-            Группа ВКонтакте
-          </button>
         </div>
       </section>
 

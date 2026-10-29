@@ -142,6 +142,7 @@ section {
 .branch-phone {
   font-size: 14px;
   color: var(--text-secondary);
+  text-decoration: none;
 }
 
 /* Buttons */
@@ -179,6 +180,16 @@ section {
   font-size: 13px;
   border-radius: 8px;
 }
+.btn-vk {
+  background: rgba(39, 135, 245, 0.1);
+  border: 1px solid rgba(39, 135, 245, 0.3);
+  color: #2787f5;
+}
+.btn-vk:hover {
+  background: rgba(39, 135, 245, 0.18);
+  color: #529ef4;
+}
+
 .w-full {
   width: 100%;
 }
@@ -262,28 +273,6 @@ section {
   text-align: center;
   padding: 16px 12px;
 }
-/* Updated class */
-.barber-avatar { 
-    width: 64px; 
-    height: 64px; 
-    background: #2C2C2E; 
-    border-radius: 50%; 
-    margin: 0 auto 12px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    color: var(--text-secondary);
-    overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-}
-
-.barber-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-/* Old class
 .barber-avatar {
   width: 64px;
   height: 64px;
@@ -294,7 +283,15 @@ section {
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
-} */
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+.barber-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .barber-name {
   font-size: 15px;
   margin-bottom: 4px;
@@ -421,6 +418,28 @@ section {
 .modal-title {
   font-size: 16px;
 }
+.modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.modal-icon-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: var(--text-secondary);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.modal-icon-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.15);
+}
 .modal-close {
   background: rgba(255, 255, 255, 0.1);
   border: none;
@@ -446,6 +465,69 @@ section {
   border: none;
   -webkit-overflow-scrolling: touch;
   touch-action: auto;
+}
+
+/* Лоадер */
+.modal-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: var(--bg-main);
+  z-index: 2;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Блок предупреждения VPN / Ошибки */
+.modal-error {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  background: var(--bg-main);
+  z-index: 3;
+}
+.modal-error .error-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.modal-error h4 {
+  font-size: 17px;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.modal-error p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+.error-actions {
+  width: 100%;
+  max-width: 280px;
 }
 .hidden {
   display: none !important;
@@ -476,7 +558,7 @@ section {
     padding: 40px 32px;
   }
 
-  /* Hero: Располагаем текст и карточки в одну линию */
+  /* Hero */
   .hero {
     display: flex;
     justify-content: space-between;
@@ -499,7 +581,7 @@ section {
     max-width: 400px;
   }
 
-  /* Services: Сетка в 2 колонки */
+  /* Services */
   .services-list {
     flex-direction: row;
     flex-wrap: wrap;
@@ -511,7 +593,7 @@ section {
     gap: 16px;
   }
 
-  /* Barbers: Сетка в 3-4 колонки */
+  /* Barbers */
   .barbers-grid {
     gap: 20px;
   }
@@ -519,7 +601,7 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 
-  /* Modal: Всплывающее окно по центру экрана, а не на весь экран */
+  /* Modal Desktop */
   .modal-overlay {
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(5px);
@@ -549,98 +631,4 @@ section {
     padding: 20px;
     border-radius: 20px 20px 0 0;
   }
-}
-
-/* Стили шапки и кнопок действий */
-.modal-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.modal-icon-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: none;
-  color: var(--text-secondary);
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: var(--transition);
-}
-.modal-icon-btn:hover {
-  color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.15);
-}
-
-/* Лоадер */
-.modal-loader {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  background: var(--bg-main);
-  z-index: 2;
-  color: var(--text-secondary);
-  font-size: 14px;
-}
-
-.spinner {
-  width: 36px;
-  height: 36px;
-  border: 3px solid rgba(255, 255, 255, 0.1);
-  border-top-color: var(--accent);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Блок предупреждения VPN / Ошибки */
-.modal-error {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  text-align: center;
-  background: var(--bg-main);
-  z-index: 3;
-}
-
-.modal-error .error-icon {
-  width: 48px;
-  height: 48px;
-  color: var(--accent);
-  margin-bottom: 16px;
-}
-
-.modal-error h4 {
-  font-size: 17px;
-  margin-bottom: 8px;
-  color: var(--text-primary);
-}
-
-.modal-error p {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: 24px;
-}
-
-.error-actions {
-  width: 100%;
-  max-width: 280px;
 }
