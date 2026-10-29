@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Barbershop TMA</title>
+    <title>Barbershop</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,35 +14,41 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="logo">BARBERSHOP</div>
-        <div class="branch-switcher">
-            <button class="branch-btn active" data-branch="1">Тургенева</button>
-            <button class="branch-btn" data-branch="2">5-й мкр</button>
+        <div class="header-container">
+            <div class="logo">BARBERSHOP</div>
+            <div class="header-controls">
+                <div class="branch-switcher">
+                    <button class="branch-btn active" data-branch="1">Тургенева</button>
+                    <button class="branch-btn" data-branch="2">5-й мкр</button>
+                </div>
+                <!-- Кнопка только для ПК -->
+                <button class="btn btn-primary btn-sm book-main-btn desktop-only">Записаться</button>
+            </div>
         </div>
     </header>
 
     <main class="main-content">
         <!-- Hero Section -->
         <section class="hero">
-            <h1 class="hero-title">ТВОЙ ИДЕАЛЬНЫЙ СТИЛЬ</h1>
-            <p class="hero-subtitle">Премиальный мужской уход в Камышине</p>
+            <div class="hero-text">
+                <h1 class="hero-title">ТВОЙ ИДЕАЛЬНЫЙ СТИЛЬ</h1>
+                <p class="hero-subtitle">Премиальный мужской уход в Камышине</p>
+                <button class="btn btn-primary book-main-btn desktop-only">Выбрать время</button>
+            </div>
             
             <div class="branch-info-cards">
-                <!-- Филиал 1 -->
                 <div class="card branch-card active" data-branch-content="1">
                     <div class="branch-status"><span class="dot green"></span> Открыто до 21:00</div>
                     <h3 class="branch-address">ул. Тургенева, 5</h3>
                     <p class="branch-phone">+7 (995) 030-70-11</p>
                 </div>
-                <!-- Филиал 2 -->
                 <div class="card branch-card hidden" data-branch-content="2">
                     <div class="branch-status"><span class="dot green"></span> Открыто до 21:00</div>
                     <h3 class="branch-address">5-й микрорайон, 109а</h3>
                     <p class="branch-phone">+7 (995) 030-70-11</p>
                 </div>
             </div>
-            
-            <button class="btn btn-primary w-full book-main-btn">Записаться онлайн</button>
+            <button class="btn btn-primary w-full book-main-btn mobile-only mt-3">Записаться онлайн</button>
         </section>
 
         <!-- Services Section -->
@@ -54,6 +60,7 @@
                 <button class="tab-btn" data-tab="care">Уход</button>
             </div>
 
+            <!-- Контент услуг оставлен тем же, CSS перестроит его в сетку на ПК -->
             <div class="services-list active" id="tab-hair">
                 <div class="service-item">
                     <div class="service-info">
@@ -71,7 +78,7 @@
                 </div>
                 <div class="service-item">
                     <div class="service-info">
-                        <h4 class="service-name">Стрижка под машинку (1-2 насадки)</h4>
+                        <h4 class="service-name">Стрижка под машинку</h4>
                         <p class="service-meta">30 мин • от 600 ₽</p>
                     </div>
                     <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
@@ -80,27 +87,6 @@
                     <div class="service-info">
                         <h4 class="service-name">Детская стрижка</h4>
                         <p class="service-meta">45 мин • от 800 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
-                 <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">Женская стрижка</h4>
-                        <p class="service-meta">60 мин • от 1500 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">Оформление чёлки / Женская укладка</h4>
-                        <p class="service-meta">30 мин • от 500 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">Биозавивка волос</h4>
-                        <p class="service-meta">120 мин • от 3000 ₽</p>
                     </div>
                     <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
                 </div>
@@ -116,42 +102,14 @@
                 </div>
                 <div class="service-item">
                     <div class="service-info">
-                        <h4 class="service-name">СПА моделирование бороды</h4>
+                        <h4 class="service-name">СПА моделирование</h4>
                         <p class="service-meta">60 мин • от 1200 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">Бритьё опасной бритвой</h4>
-                        <p class="service-meta">45 мин • от 900 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">Камуфляж бороды</h4>
-                        <p class="service-meta">30 мин • от 700 ₽</p>
                     </div>
                     <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
                 </div>
             </div>
 
             <div class="services-list hidden" id="tab-care">
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">Глиняная маска + скраб</h4>
-                        <p class="service-meta">30 мин • от 600 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">Массаж + Уход за головой</h4>
-                        <p class="service-meta">30 мин • от 800 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
                 <div class="service-item">
                     <div class="service-info">
                         <h4 class="service-name">Детокс кожи головы</h4>
@@ -161,15 +119,8 @@
                 </div>
                 <div class="service-item">
                     <div class="service-info">
-                        <h4 class="service-name">Депиляция лица воском (1 зона)</h4>
+                        <h4 class="service-name">Депиляция воском (1 зона)</h4>
                         <p class="service-meta">15 мин • от 400 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">Депиляция лица воском (2-3 зоны)</h4>
-                        <p class="service-meta">30 мин • от 800 ₽</p>
                     </div>
                     <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
                 </div>
@@ -180,7 +131,6 @@
         <section class="barbers">
             <h2 class="section-title">НАША КОМАНДА</h2>
             
-            <!-- Команда Филиал 1 -->
             <div class="barbers-grid active" data-branch-content="1">
                 <div class="card barber-card">
                     <div class="barber-avatar"><i data-lucide="user"></i></div>
@@ -196,7 +146,6 @@
                 </div>
             </div>
 
-            <!-- Команда Филиал 2 -->
             <div class="barbers-grid hidden" data-branch-content="2">
                 <div class="card barber-card">
                     <div class="barber-avatar"><i data-lucide="user"></i></div>
@@ -219,30 +168,31 @@
             </div>
         </section>
 
-        <!-- Locations & Atmosphere -->
+        <!-- Locations -->
         <section class="locations">
             <h2 class="section-title">КОНТАКТЫ</h2>
-            <!-- Контакты Филиал 1 -->
-            <div class="card location-card active" data-branch-content="1">
-                <div class="location-header">
-                    <i data-lucide="map-pin" class="text-accent"></i>
-                    <div>
-                        <h4 class="location-title">Камышин, ул. Тургенева, 5</h4>
-                        <p class="location-desc">Бесплатная парковка, кофе, PS5</p>
+            <div class="locations-grid">
+                <div class="card location-card active" data-branch-content="1">
+                    <div class="location-header">
+                        <i data-lucide="map-pin" class="text-accent"></i>
+                        <div>
+                            <h4 class="location-title">Камышин, ул. Тургенева, 5</h4>
+                            <p class="location-desc">Бесплатная парковка, кофе, PS5</p>
+                        </div>
                     </div>
+                    <a href="https://yandex.ru/maps/" target="_blank" class="btn btn-outline w-full mt-3"><i data-lucide="navigation"></i> Маршрут</a>
                 </div>
-                <a href="https://yandex.ru/maps/" target="_blank" class="btn btn-outline w-full mt-3"><i data-lucide="navigation"></i> Маршрут</a>
-            </div>
-            <!-- Контакты Филиал 2 -->
-            <div class="card location-card hidden" data-branch-content="2">
-                <div class="location-header">
-                    <i data-lucide="map-pin" class="text-accent"></i>
-                    <div>
-                        <h4 class="location-title">Камышин, 5-й микрорайон, 109а</h4>
-                        <p class="location-desc">Бесплатная парковка, напитки, лаунж-зона</p>
+                
+                <div class="card location-card hidden" data-branch-content="2">
+                    <div class="location-header">
+                        <i data-lucide="map-pin" class="text-accent"></i>
+                        <div>
+                            <h4 class="location-title">Камышин, 5-й микрорайон, 109а</h4>
+                            <p class="location-desc">Парковка, напитки, лаунж-зона</p>
+                        </div>
                     </div>
+                    <a href="https://yandex.ru/maps/" target="_blank" class="btn btn-outline w-full mt-3"><i data-lucide="navigation"></i> Маршрут</a>
                 </div>
-                <a href="https://yandex.ru/maps/" target="_blank" class="btn btn-outline w-full mt-3"><i data-lucide="navigation"></i> Маршрут</a>
             </div>
         </section>
 
@@ -268,35 +218,27 @@
                         <p>Мы принимаем наличные, банковские карты и переводы по СБП.</p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span>Что если я опаздываю?</span>
-                        <i data-lucide="chevron-down" class="accordion-icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Пожалуйста, предупредите нас по телефону. При опоздании более чем на 15 минут мастер может предложить сократить услугу или перенести запись.</p>
-                    </div>
-                </div>
             </div>
         </section>
         
-        <!-- Spacer for sticky button -->
-        <div class="pb-safe-spacer"></div>
+        <div class="pb-safe-spacer mobile-only"></div>
     </main>
 
-    <!-- Sticky Booking Button -->
-    <div class="sticky-footer">
+    <!-- Sticky Booking Button (Mobile Only) -->
+    <div class="sticky-footer mobile-only">
         <button class="btn btn-primary w-full book-main-btn">Записаться онлайн</button>
     </div>
 
     <!-- YClients Modal Overlay -->
     <div id="yclients-modal" class="modal-overlay hidden">
-        <div class="modal-header">
-            <h3 class="modal-title">Онлайн-запись</h3>
-            <button id="close-modal-btn" class="modal-close"><i data-lucide="x"></i></button>
-        </div>
-        <div class="modal-body">
-            <iframe id="yclients-iframe" src="" frameborder="0"></iframe>
+        <div class="modal-window">
+            <div class="modal-header">
+                <h3 class="modal-title">Онлайн-запись</h3>
+                <button id="close-modal-btn" class="modal-close"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body">
+                <iframe id="yclients-iframe" src="" frameborder="0"></iframe>
+            </div>
         </div>
     </div>
 
