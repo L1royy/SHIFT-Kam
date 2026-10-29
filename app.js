@@ -81,38 +81,102 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Модальное окно YClients
+    // Модальное окно YClients и обработка проблем с VPN
     const modal = document.getElementById('yclients-modal');
     const iframe = document.getElementById('yclients-iframe');
     const closeModalBtn = document.getElementById('close-modal-btn');
+    const externalLinkBtn = document.getElementById('external-link-btn');
+    const openDirectBtn = document.getElementById('open-direct-btn');
+    const retryBtn = document.getElementById('retry-btn');
+    const loader = document.getElementById('modal-loader');
+    const errorBlock = document.getElementById('modal-error');
     const bookBtns = document.querySelectorAll('.book-main-btn');
 
+    let loadTimeout = null;
+
+    // Универсальная функция открытия внешней ссылки (в Telegram через openLink, на ПК через window.open)
+    const openInBrowser = (url) => {
+        hapticLight();
+        if (tg && tg.openLink) {
+            tg.openLink(url);
+        } else {
+            window.open(url, '_blank');
+        }
+    };
+
+    const startLoading = () => {
+        const targetUrl = yclientsUrls[currentBranch];
+        loader.classList.remove('hidden');
+        errorBlock.classList.add('hidden');
+
+        // Сбрасываем и задаем src
+        iframe.src = targetUrl;
+
+        // Если за 6 секунд iframe не загрузился (типично при блокировке по VPN), показываем предупреждение
+        clearTimeout(loadTimeout);
+        loadTimeout = setTimeout(() => {
+            loader.classList.add('hidden');
+            errorBlock.classList.remove('hidden');
+        }, 6000);
+    };
+
+    // При успешной загрузке iframe
+    iframe.addEventListener('load', () => {
+        // Проверяем, что это не пустой начальный src
+        if (iframe.src && iframe.src.includes('yclients.com')) {
+            clearTimeout(loadTimeout);
+            loader.classList.add('hidden');
+            errorBlock.classList.add('hidden');
+        }
+    });
+
+    // Открытие модалки
     bookBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             hapticRigid();
             if (tg && tg.disableVerticalSwipes) tg.disableVerticalSwipes();
             
-            iframe.src = yclientsUrls[currentBranch];
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
+            startLoading();
         });
     });
 
+    // Закрытие модалки
     const closeModal = () => {
         hapticLight();
+        clearTimeout(loadTimeout);
         if (tg && tg.enableVerticalSwipes) tg.enableVerticalSwipes();
         
         modal.classList.add('hidden');
         setTimeout(() => {
             iframe.src = '';
+            loader.classList.remove('hidden');
+            errorBlock.classList.add('hidden');
             document.body.style.overflow = '';
         }, 300);
     };
 
     closeModalBtn.addEventListener('click', closeModal);
-    
-    // Закрытие модалки по клику на темный фон (для ПК)
+
+    // Закрытие по фону (для ПК)
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal();
+    });
+
+    // Кнопка в шапке модалки: открыть сразу в браузере
+    externalLinkBtn.addEventListener('click', () => {
+        openInBrowser(yclientsUrls[currentBranch]);
+    });
+
+    // Кнопка в блоке ошибки
+    openDirectBtn.addEventListener('click', () => {
+        openInBrowser(yclientsUrls[currentBranch]);
+    });
+
+    // Кнопка «Попробовать снова»
+    retryBtn.addEventListener('click', () => {
+        hapticLight();
+        startLoading();
     });
 });

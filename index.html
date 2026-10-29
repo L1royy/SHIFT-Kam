@@ -229,14 +229,40 @@
         <button class="btn btn-primary w-full book-main-btn">Записаться онлайн</button>
     </div>
 
-    <!-- YClients Modal Overlay -->
+    <!-- YClients Modal Overlay с индикатором загрузки и Fallback -->
     <div id="yclients-modal" class="modal-overlay hidden">
         <div class="modal-window">
             <div class="modal-header">
                 <h3 class="modal-title">Онлайн-запись</h3>
-                <button id="close-modal-btn" class="modal-close"><i data-lucide="x"></i></button>
+                <div class="modal-actions">
+                    <button id="external-link-btn" class="modal-icon-btn" title="Открыть в браузере">
+                        <i data-lucide="external-link"></i>
+                    </button>
+                    <button id="close-modal-btn" class="modal-close">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
             </div>
+            
             <div class="modal-body">
+                <!-- Индикатор загрузки -->
+                <div id="modal-loader" class="modal-loader">
+                    <div class="spinner"></div>
+                    <p>Загрузка формы записи...</p>
+                </div>
+
+                <!-- Блок ошибки / включенного VPN -->
+                <div id="modal-error" class="modal-error hidden">
+                    <i data-lucide="shield-alert" class="error-icon"></i>
+                    <h4>Не удалось загрузить виджет</h4>
+                    <p>Возможно, у вас включен <strong>VPN</strong>. Серверы записи могут блокировать зарубежные соединения.</p>
+                    <div class="error-actions">
+                        <button id="open-direct-btn" class="btn btn-primary w-full">Открыть в браузере</button>
+                        <button id="retry-btn" class="btn btn-outline w-full mt-2">Попробовать снова</button>
+                    </div>
+                </div>
+
+                <!-- Сам iFrame -->
                 <iframe id="yclients-iframe" src="" frameborder="0"></iframe>
             </div>
         </div>
