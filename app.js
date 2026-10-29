@@ -1,27 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Инициализация иконок и Telegram SDK (с защитой для обычного браузера)
+    // 1. Инициализация иконок и Telegram SDK
     lucide.createIcons();
     const isTelegram = window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData;
     const tg = isTelegram ? window.Telegram.WebApp : null;
 
     if (tg) {
-        tg.ready(); // Сообщаем Telegram, что приложение готово к отображению
+        tg.ready(); // Сообщаем Telegram, что приложение готово
         tg.expand();
         tg.setHeaderColor('#0D0D0D');
         tg.setBackgroundColor('#0D0D0D');
-        tg.enableClosingConfirmation(); // Защита от случайного смахивания вниз
+        // Включаем подтверждение закрытия, чтобы случайно не смахнуть
+        if (tg.enableClosingConfirmation) tg.enableClosingConfirmation(); 
     }
 
     let currentBranch = '1';
-    let currentBookingUrl = ''; // Сюда будет сохраняться финальная ссылка для открытия
+    let currentBookingUrl = ''; // Переменная для хранения итоговой ссылки
     
-    const yclientsUrls = {
-        '1': 'https://n1765473.yclients.com/company/1464969/personal/menu?o=',
-        '2': 'https://n1765473.yclients.com/company/931929/personal/menu?o='
+    // Базовые ссылки (без endpoint'ов)
+    const yclientsBaseUrls = {
+        '1': 'https://n1765473.yclients.com/company/1464969/personal/',
+        '2': 'https://n1765473.yclients.com/company/931929/personal/'
     };
 
     const hapticLight = () => { if (tg && tg.HapticFeedback) tg.HapticFeedback.impactOccurred('light'); };
     const hapticRigid = () => { if (tg && tg.HapticFeedback) tg.HapticFeedback.impactOccurred('rigid'); };
+
+    // Универсальная функция открытия внешней ссылки
+    const openInBrowser = (url) => {
+        hapticLight();
+        if (tg && tg.openLink) {
+            tg.openLink(url);
+        } else {
+            window.open(url, '_blank');
+        }
+    };
+
+    // Слушатель для кастомной кнопки ВК (если добавите id="vk-link")
+    const vkLink = document.getElementById('vk-link');
+    if (vkLink) {
+        vkLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openInBrowser('https://vk.com/shift.room');
+        });
+    }
 
     // Логика переключения филиалов
     const branchBtns = document.querySelectorAll('.branch-btn');
@@ -38,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
             branchContents.forEach(content => {
                 if (content.getAttribute('data-branch-content') === currentBranch) {
                     content.classList.remove('hidden');
-                    // Не сбрасываем display, оставляем управление классам CSS
                     content.classList.add('active'); 
                 } else {
                     content.classList.add('hidden');
@@ -97,24 +117,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let loadTimeout = null;
 
-    // Универсальная функция открытия внешней ссылки (в Telegram через openLink, на ПК через window.open)
-    const openInBrowser = (url) => {
-        hapticLight();
-        if (tg && tg.openLink) {
-            tg.openLink(url);
-        } else {
-            window.open(url, '_blank');
-        }
-    };
-
     const startLoading = () => {
         loader.classList.remove('hidden');
         errorBlock.classList.add('hidden');
 
-        // Сбрасываем и задаем src из глобальной переменной
+        // Подставляем сформированную ссылку
         iframe.src = currentBookingUrl;
 
-        // Если за 6 секунд iframe не загрузился (типично при блокировке по VPN), показываем предупреждение
+        // Если за 6 секунд iframe не загрузился, показываем ошибку
         clearTimeout(loadTimeout);
         loadTimeout = setTimeout(() => {
             loader.classList.add('hidden');
@@ -124,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // При успешной загрузке iframe
     iframe.addEventListener('load', () => {
-        // Проверяем, что это не пустой начальный src
         if (iframe.src && iframe.src.includes('yclients.com')) {
             clearTimeout(loadTimeout);
             loader.classList.add('hidden');
@@ -132,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Закрытие модалки
+    // Закрытие модалки (вынесено для использования в кнопке "Назад")
     const closeModal = () => {
         hapticLight();
         clearTimeout(loadTimeout);
@@ -162,24 +171,28 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (tg) {
                 if (tg.disableVerticalSwipes) tg.disableVerticalSwipes();
-                // Показываем системную кнопку "Назад" и вешаем на нее закрытие модалки
+                // Показываем системную кнопку "Назад" и вешаем закрытие
                 if (tg.BackButton) {
                     tg.BackButton.show();
                     tg.BackButton.onClick(closeModal);
                 }
             }
             
-            // Формирование ссылки с учетом мастера или услуги (если переданы data-атрибуты)
-            const baseUrl = yclientsUrls[currentBranch];
+            // Формируем URL в зависимости от наличия ID мастера или услуги
             const masterId = btn.getAttribute('data-master-id');
             const serviceId = btn.getAttribute('data-service-id');
+            let targetUrl = yclientsBaseUrls[currentBranch];
             
-            let extraParams = '';
-            // Формат YClients для предвыбора мастера/услуги
-            if (masterId) extraParams += `&m=${masterId}`;
-            if (serviceId) extraParams += `&s=${serviceId}`;
+            if (masterId) {
+                targetUrl += `select-master?o=m${masterId}`;
+            } else if (serviceId) {
+                targetUrl += `select-services?o=s${serviceId}`;
+            } else {
+                targetUrl += `menu?o=`;
+            }
             
-            currentBookingUrl = baseUrl + extraParams;
+            // Сохраняем ссылку, чтобы кнопки Fallback открывали именно её
+            currentBookingUrl = targetUrl;
             
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -195,18 +208,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Кнопка в шапке модалки: открыть сразу в браузере
-    externalLinkBtn.addEventListener('click', () => {
-        openInBrowser(currentBookingUrl);
-    });
+    externalLinkBtn.addEventListener('click', () => { openInBrowser(currentBookingUrl); });
 
     // Кнопка в блоке ошибки
-    openDirectBtn.addEventListener('click', () => {
-        openInBrowser(currentBookingUrl);
-    });
+    openDirectBtn.addEventListener('click', () => { openInBrowser(currentBookingUrl); });
 
     // Кнопка «Попробовать снова»
-    retryBtn.addEventListener('click', () => {
-        hapticLight();
-        startLoading();
-    });
+    retryBtn.addEventListener('click', () => { hapticLight(); startLoading(); });
 });
