@@ -1,273 +1,356 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Barbershop</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <!-- Превью для Telegram, VK и WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Барбершоп SHIFT | Камышин" />
+    <meta
+      property="og:description"
+      content="Мужские и детские стрижки, моделирование бороды. Онлайн-запись в два филиала."
+    />
+    <!-- В будущем добавить превью
+    <meta
+      property="og:image"
+      content="https://ваш-домен.ru/assets/images/og-preview.jpg"
+    /> -->
+    <title>Барбершоп SHIFT | Камышин — Мужские стрижки и бритье</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Header -->
     <header class="header">
-        <div class="header-container">
-            <div class="logo">BARBERSHOP</div>
-            <div class="header-controls">
-                <div class="branch-switcher">
-                    <button class="branch-btn active" data-branch="1">Тургенева</button>
-                    <button class="branch-btn" data-branch="2">5-й мкр</button>
-                </div>
-                <!-- Кнопка только для ПК -->
-                <button class="btn btn-primary btn-sm book-main-btn desktop-only">Записаться</button>
-            </div>
+      <div class="header-container">
+        <div class="logo">SHIFT</div>
+        <div class="header-controls">
+          <div class="branch-switcher">
+            <button class="branch-btn active" data-branch="1">Тургенева</button>
+            <button class="branch-btn" data-branch="2">5-й мкр</button>
+          </div>
+          <!-- Кнопка только для ПК -->
+          <button class="btn btn-primary btn-sm book-main-btn desktop-only">
+            Записаться
+          </button>
         </div>
+      </div>
     </header>
 
     <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-text">
-                <h1 class="hero-title">ТВОЙ ИДЕАЛЬНЫЙ СТИЛЬ</h1>
-                <p class="hero-subtitle">Премиальный мужской уход в Камышине</p>
-                <button class="btn btn-primary book-main-btn desktop-only">Выбрать время</button>
-            </div>
-            
-            <div class="branch-info-cards">
-                <div class="card branch-card active" data-branch-content="1">
-                    <div class="branch-status"><span class="dot green"></span> Открыто до 21:00</div>
-                    <h3 class="branch-address">ул. Тургенева, 5</h3>
-                    <p class="branch-phone">+7 (995) 030-70-11</p>
-                </div>
-                <div class="card branch-card hidden" data-branch-content="2">
-                    <div class="branch-status"><span class="dot green"></span> Открыто до 21:00</div>
-                    <h3 class="branch-address">5-й микрорайон, 109а</h3>
-                    <p class="branch-phone">+7 (995) 030-70-11</p>
-                </div>
-            </div>
-            <button class="btn btn-primary w-full book-main-btn mobile-only mt-3">Записаться онлайн</button>
-        </section>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-text">
+          <h1 class="hero-title">ТВОЙ ИДЕАЛЬНЫЙ СТИЛЬ</h1>
+          <p class="hero-subtitle">Премиальный мужской уход в Камышине</p>
+          <button class="btn btn-primary book-main-btn desktop-only">
+            Выбрать время
+          </button>
+        </div>
 
-        <!-- Services Section -->
-        <section class="services">
-            <h2 class="section-title">УСЛУГИ И ЦЕНЫ</h2>
-            <div class="tabs">
-                <button class="tab-btn active" data-tab="hair">Стрижки</button>
-                <button class="tab-btn" data-tab="beard">Борода</button>
-                <button class="tab-btn" data-tab="care">Уход</button>
+        <div class="branch-info-cards">
+          <div class="card branch-card active" data-branch-content="1">
+            <div class="branch-status">
+              <span class="dot green"></span> Открыто до 21:00
             </div>
+            <h3 class="branch-address">ул. Тургенева, 5</h3>
+            <p class="branch-phone">
+              <a href="tel:+79951427662" class="branch-phone"
+                >+7 (995) 142-76-62</a
+              >
+            </p>
+          </div>
+          <div class="card branch-card hidden" data-branch-content="2">
+            <div class="branch-status">
+              <span class="dot green"></span> Открыто до 21:00
+            </div>
+            <h3 class="branch-address">5-й микрорайон, 109а</h3>
+            <p class="branch-phone">
+              <a href="tel:+79950307011" class="branch-phone"
+                >+7 (995) 030-70-11</a
+              >
+            </p>
+          </div>
+        </div>
+        <button class="btn btn-primary w-full book-main-btn mobile-only mt-3">
+          Записаться онлайн
+        </button>
+      </section>
 
-            <!-- Контент услуг оставлен тем же, CSS перестроит его в сетку на ПК -->
-            <div class="services-list active" id="tab-hair">
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">Мужская стрижка</h4>
-                        <p class="service-meta">60 мин • от 1000 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">Удлиненная стрижка (ножницы)</h4>
-                        <p class="service-meta">60 мин • от 1200 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">Стрижка под машинку</h4>
-                        <p class="service-meta">30 мин • от 600 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">Детская стрижка</h4>
-                        <p class="service-meta">45 мин • от 800 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
-            </div>
+      <!-- Services Section -->
+      <section class="services">
+        <h2 class="section-title">УСЛУГИ И ЦЕНЫ</h2>
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="hair">Стрижки</button>
+          <button class="tab-btn" data-tab="beard">Борода</button>
+          <button class="tab-btn" data-tab="care">Уход</button>
+        </div>
 
-            <div class="services-list hidden" id="tab-beard">
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">Оформление бороды</h4>
-                        <p class="service-meta">45 мин • от 800 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">СПА моделирование</h4>
-                        <p class="service-meta">60 мин • от 1200 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
+        <!-- Контент услуг оставлен тем же, CSS перестроит его в сетку на ПК -->
+        <div class="services-list active" id="tab-hair">
+          <div class="service-item">
+            <div class="service-info">
+              <h4 class="service-name">Мужская стрижка</h4>
+              <p class="service-meta">60 мин • от 1000 ₽</p>
             </div>
+            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+          </div>
+          <div class="service-item">
+            <div class="service-info">
+              <h4 class="service-name">Удлиненная стрижка (ножницы)</h4>
+              <p class="service-meta">60 мин • от 1200 ₽</p>
+            </div>
+            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+          </div>
+          <div class="service-item">
+            <div class="service-info">
+              <h4 class="service-name">Стрижка под машинку</h4>
+              <p class="service-meta">30 мин • от 600 ₽</p>
+            </div>
+            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+          </div>
+          <div class="service-item">
+            <div class="service-info">
+              <h4 class="service-name">Детская стрижка</h4>
+              <p class="service-meta">45 мин • от 800 ₽</p>
+            </div>
+            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+          </div>
+        </div>
 
-            <div class="services-list hidden" id="tab-care">
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">Детокс кожи головы</h4>
-                        <p class="service-meta">45 мин • от 1000 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
-                <div class="service-item">
-                    <div class="service-info">
-                        <h4 class="service-name">Депиляция воском (1 зона)</h4>
-                        <p class="service-meta">15 мин • от 400 ₽</p>
-                    </div>
-                    <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
-                </div>
+        <div class="services-list hidden" id="tab-beard">
+          <div class="service-item">
+            <div class="service-info">
+              <h4 class="service-name">Оформление бороды</h4>
+              <p class="service-meta">45 мин • от 800 ₽</p>
             </div>
-        </section>
+            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+          </div>
+          <div class="service-item">
+            <div class="service-info">
+              <h4 class="service-name">СПА моделирование</h4>
+              <p class="service-meta">60 мин • от 1200 ₽</p>
+            </div>
+            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+          </div>
+        </div>
 
-        <!-- Barbers Section -->
-        <section class="barbers">
-            <h2 class="section-title">НАША КОМАНДА</h2>
-            
-            <div class="barbers-grid active" data-branch-content="1">
-                <div class="card barber-card">
-                    <div class="barber-avatar"><i data-lucide="user"></i></div>
-                    <h4 class="barber-name">Кирилл</h4>
-                    <p class="barber-grade">Главный барбер</p>
-                    <button class="btn btn-outline btn-sm w-full mt-2 book-main-btn">Выбрать</button>
-                </div>
-                <div class="card barber-card">
-                    <div class="barber-avatar"><i data-lucide="user"></i></div>
-                    <h4 class="barber-name">Ольга</h4>
-                    <p class="barber-grade">Младший барбер</p>
-                    <button class="btn btn-outline btn-sm w-full mt-2 book-main-btn">Выбрать</button>
-                </div>
+        <div class="services-list hidden" id="tab-care">
+          <div class="service-item">
+            <div class="service-info">
+              <h4 class="service-name">Детокс кожи головы</h4>
+              <p class="service-meta">45 мин • от 1000 ₽</p>
             </div>
+            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+          </div>
+          <div class="service-item">
+            <div class="service-info">
+              <h4 class="service-name">Депиляция воском (1 зона)</h4>
+              <p class="service-meta">15 мин • от 400 ₽</p>
+            </div>
+            <button class="btn btn-outline btn-sm book-main-btn">Запись</button>
+          </div>
+        </div>
+      </section>
 
-            <div class="barbers-grid hidden" data-branch-content="2">
-                <div class="card barber-card">
-                    <div class="barber-avatar"><i data-lucide="user"></i></div>
-                    <h4 class="barber-name">Кирилл</h4>
-                    <p class="barber-grade">Главный барбер</p>
-                    <button class="btn btn-outline btn-sm w-full mt-2 book-main-btn">Выбрать</button>
-                </div>
-                <div class="card barber-card">
-                    <div class="barber-avatar"><i data-lucide="user"></i></div>
-                    <h4 class="barber-name">Татьяна</h4>
-                    <p class="barber-grade">Барбер</p>
-                    <button class="btn btn-outline btn-sm w-full mt-2 book-main-btn">Выбрать</button>
-                </div>
-                <div class="card barber-card">
-                    <div class="barber-avatar"><i data-lucide="user"></i></div>
-                    <h4 class="barber-name">Ксения</h4>
-                    <p class="barber-grade">Барбер эксперт</p>
-                    <button class="btn btn-outline btn-sm w-full mt-2 book-main-btn">Выбрать</button>
-                </div>
-            </div>
-        </section>
+      <!-- Barbers Section -->
+      <section class="barbers">
+        <h2 class="section-title">НАША КОМАНДА</h2>
 
-        <!-- Locations -->
-        <section class="locations">
-            <h2 class="section-title">КОНТАКТЫ</h2>
-            <div class="locations-grid">
-                <div class="card location-card active" data-branch-content="1">
-                    <div class="location-header">
-                        <i data-lucide="map-pin" class="text-accent"></i>
-                        <div>
-                            <h4 class="location-title">Камышин, ул. Тургенева, 5</h4>
-                            <p class="location-desc">Бесплатная парковка, кофе, PS5</p>
-                        </div>
-                    </div>
-                    <a href="https://yandex.ru/maps/" target="_blank" class="btn btn-outline w-full mt-3"><i data-lucide="navigation"></i> Маршрут</a>
-                </div>
-                
-                <div class="card location-card hidden" data-branch-content="2">
-                    <div class="location-header">
-                        <i data-lucide="map-pin" class="text-accent"></i>
-                        <div>
-                            <h4 class="location-title">Камышин, 5-й микрорайон, 109а</h4>
-                            <p class="location-desc">Парковка, напитки, лаунж-зона</p>
-                        </div>
-                    </div>
-                    <a href="https://yandex.ru/maps/" target="_blank" class="btn btn-outline w-full mt-3"><i data-lucide="navigation"></i> Маршрут</a>
-                </div>
+        <div class="barbers-grid active" data-branch-content="1">
+          <div class="card barber-card">
+            <div class="barber-avatar">
+              <img src="assets/images/team/kirill.png" alt="Барбер Кирилл" />
             </div>
-        </section>
+            <h4 class="barber-name">Кирилл</h4>
+            <p class="barber-grade">Главный барбер</p>
+            <button class="btn btn-outline btn-sm w-full mt-2 book-main-btn" data-master-id="4530639">
+              Выбрать
+            </button>
+          </div>
+          <div class="card barber-card">
+            <div class="barber-avatar">
+              <div class="barber-avatar">
+                <img src="assets/images/team/olga.jpeg" alt="Барбер Ольга" />
+              </div>
+            </div>
+            <h4 class="barber-name">Ольга</h4>
+            <p class="barber-grade">Младший барбер</p>
+            <button class="btn btn-outline btn-sm w-full mt-2 book-main-btn">
+              Выбрать
+            </button>
+          </div>
+        </div>
 
-        <!-- FAQ Section -->
-        <section class="faq">
-            <h2 class="section-title">ЧАСТЫЕ ВОПРОСЫ</h2>
-            <div class="accordion">
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span>Нужно ли мыть голову перед визитом?</span>
-                        <i data-lucide="chevron-down" class="accordion-icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Нет, мытье головы до и после стрижки уже включено в стоимость услуги.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span>Как оплатить услуги?</span>
-                        <i data-lucide="chevron-down" class="accordion-icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Мы принимаем наличные, банковские карты и переводы по СБП.</p>
-                    </div>
-                </div>
+        <div class="barbers-grid hidden" data-branch-content="2">
+          <div class="card barber-card">
+            <div class="barber-avatar">
+              <img src="assets/images/team/kirill.png" alt="Барбер Кирилл" />
             </div>
-        </section>
-        
-        <div class="pb-safe-spacer mobile-only"></div>
+            <h4 class="barber-name">Кирилл</h4>
+            <p class="barber-grade">Главный барбер</p>
+            <button class="btn btn-outline btn-sm w-full mt-2 book-main-btn">
+              Выбрать
+            </button>
+          </div>
+          <div class="card barber-card">
+            <div class="barber-avatar">
+              <img src="assets/images/team/tatyana.png" alt="Барбер Татьяна" />
+            </div>
+            <h4 class="barber-name">Татьяна</h4>
+            <p class="barber-grade">Барбер</p>
+            <button class="btn btn-outline btn-sm w-full mt-2 book-main-btn">
+              Выбрать
+            </button>
+          </div>
+          <div class="card barber-card">
+            <div class="barber-avatar"><i data-lucide="user"></i></div>
+            <h4 class="barber-name">Ксения</h4>
+            <p class="barber-grade">Барбер эксперт</p>
+            <button class="btn btn-outline btn-sm w-full mt-2 book-main-btn">
+              Выбрать
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Locations -->
+      <section class="locations">
+        <h2 class="section-title">КОНТАКТЫ</h2>
+        <div class="locations-grid">
+          <div class="card location-card active" data-branch-content="1">
+            <div class="location-header">
+              <i data-lucide="map-pin" class="text-accent"></i>
+              <div>
+                <h4 class="location-title">Камышин, ул. Тургенева, 5</h4>
+                <p class="location-desc">Бесплатная парковка, кофе, PS5</p>
+              </div>
+            </div>
+            <a
+              href="https://yandex.ru/maps/10959/kamishin/?ll=45.395236%2C50.020792&mode=routes&rtext=~50.092501%2C45.415467&rtt=comparison&ruri=~ymapsbm1%3A%2F%2Forg%3Foid%3D230885168116&utm_source=share&z=11"
+              target="_blank"
+              class="btn btn-outline w-full mt-3"
+              ><i data-lucide="navigation"></i> Маршрут</a
+            >
+          </div>
+
+          <div class="card location-card hidden" data-branch-content="2">
+            <div class="location-header">
+              <i data-lucide="map-pin" class="text-accent"></i>
+              <div>
+                <h4 class="location-title">Камышин, 5-й микрорайон, 109а</h4>
+                <p class="location-desc">Парковка, напитки, лаунж-зона</p>
+              </div>
+            </div>
+            <a
+              href="https://yandex.ru/maps/10959/kamishin/?ll=45.395236%2C50.020792&mode=routes&rtext=~50.092501%2C45.415467&rtt=comparison&ruri=~ymapsbm1%3A%2F%2Forg%3Foid%3D230885168116&utm_source=share&z=11"
+              target="_blank"
+              class="btn btn-outline w-full mt-3"
+              ><i data-lucide="navigation"></i> Маршрут</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq">
+        <h2 class="section-title">ЧАСТЫЕ ВОПРОСЫ</h2>
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>Нужно ли мыть голову перед визитом?</span>
+              <i data-lucide="chevron-down" class="accordion-icon"></i>
+            </button>
+            <div class="accordion-content">
+              <p>
+                Нет, мытье головы до и после стрижки уже включено в стоимость
+                услуги.
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>Как оплатить услуги?</span>
+              <i data-lucide="chevron-down" class="accordion-icon"></i>
+            </button>
+            <div class="accordion-content">
+              <p>Мы принимаем наличные, банковские карты и переводы по СБП.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="pb-safe-spacer mobile-only"></div>
     </main>
 
     <!-- Sticky Booking Button (Mobile Only) -->
     <div class="sticky-footer mobile-only">
-        <button class="btn btn-primary w-full book-main-btn">Записаться онлайн</button>
+      <button class="btn btn-primary w-full book-main-btn">
+        Записаться онлайн
+      </button>
     </div>
 
     <!-- YClients Modal Overlay с индикатором загрузки и Fallback -->
     <div id="yclients-modal" class="modal-overlay hidden">
-        <div class="modal-window">
-            <div class="modal-header">
-                <h3 class="modal-title">Онлайн-запись</h3>
-                <div class="modal-actions">
-                    <button id="external-link-btn" class="modal-icon-btn" title="Открыть в браузере">
-                        <i data-lucide="external-link"></i>
-                    </button>
-                    <button id="close-modal-btn" class="modal-close">
-                        <i data-lucide="x"></i>
-                    </button>
-                </div>
-            </div>
-            
-            <div class="modal-body">
-                <!-- Индикатор загрузки -->
-                <div id="modal-loader" class="modal-loader">
-                    <div class="spinner"></div>
-                    <p>Загрузка формы записи...</p>
-                </div>
-
-                <!-- Блок ошибки / включенного VPN -->
-                <div id="modal-error" class="modal-error hidden">
-                    <i data-lucide="shield-alert" class="error-icon"></i>
-                    <h4>Не удалось загрузить виджет</h4>
-                    <p>Возможно, у вас включен <strong>VPN</strong>. Серверы записи могут блокировать зарубежные соединения.</p>
-                    <div class="error-actions">
-                        <button id="open-direct-btn" class="btn btn-primary w-full">Открыть в браузере</button>
-                        <button id="retry-btn" class="btn btn-outline w-full mt-2">Попробовать снова</button>
-                    </div>
-                </div>
-
-                <!-- Сам iFrame -->
-                <iframe id="yclients-iframe" src="" frameborder="0"></iframe>
-            </div>
+      <div class="modal-window">
+        <div class="modal-header">
+          <h3 class="modal-title">Онлайн-запись</h3>
+          <div class="modal-actions">
+            <button
+              id="external-link-btn"
+              class="modal-icon-btn"
+              title="Открыть в браузере"
+            >
+              <i data-lucide="external-link"></i>
+            </button>
+            <button id="close-modal-btn" class="modal-close">
+              <i data-lucide="x"></i>
+            </button>
+          </div>
         </div>
+
+        <div class="modal-body">
+          <!-- Индикатор загрузки -->
+          <div id="modal-loader" class="modal-loader">
+            <div class="spinner"></div>
+            <p>Загрузка формы записи...</p>
+          </div>
+
+          <!-- Блок ошибки / включенного VPN -->
+          <div id="modal-error" class="modal-error hidden">
+            <i data-lucide="shield-alert" class="error-icon"></i>
+            <h4>Не удалось загрузить виджет</h4>
+            <p>
+              Возможно, у вас включен <strong>VPN</strong>. Серверы записи могут
+              блокировать зарубежные соединения.
+            </p>
+            <div class="error-actions">
+              <button id="open-direct-btn" class="btn btn-primary w-full">
+                Открыть в браузере
+              </button>
+              <button id="retry-btn" class="btn btn-outline w-full mt-2">
+                Попробовать снова
+              </button>
+            </div>
+          </div>
+
+          <!-- Сам iFrame -->
+          <iframe id="yclients-iframe" src="" frameborder="0"></iframe>
+        </div>
+      </div>
     </div>
 
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
